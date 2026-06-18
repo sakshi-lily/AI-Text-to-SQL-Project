@@ -1,11 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-primary: #3b82f6;
-  --color-brand-secondary: #6366f1;
+  --font-sans: 'Poppins', sans-serif;
+  --color-brand-bg: #F8FAFC;
+  --color-brand-sidebar: #FFFFFF;
+  --color-brand-card: #FFFFFF;
+  --color-brand-primary: #0F766E;
+  --color-brand-secondary: #334155;
+  --color-brand-border: #E2E8F0;
+  --color-brand-success: #16A34A;
+  --color-brand-warning: #D97706;
+  --color-brand-error: #DC2626;
 }
 
-/* Custom Scrollbar Styles for modern tech look */
+/* Custom global rules for SaaS redesign */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-brand-bg);
+}
+
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -16,93 +30,56 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(156, 163, 175, 0.25);
+  background: rgba(15, 118, 110, 0.1);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(156, 163, 175, 0.45);
+  background: rgba(15, 118, 110, 0.25);
 }
 
-/* Dark mode overrides for syntax highlighting container */
+/* Syntax font override */
 pre, code {
   font-family: 'Fira Code', 'Courier New', Courier, monospace;
 }
 
-/* Abstract dot grid background pattern */
+/* Muted dot grid pattern */
 .bg-grid-pattern {
-  background-size: 30px 30px;
+  background-size: 24px 24px;
   background-image: 
-    radial-gradient(circle, rgba(148, 163, 184, 0.05) 1.5px, transparent 1.5px);
+    radial-gradient(circle, rgba(15, 118, 110, 0.02) 1px, transparent 1px);
 }
 
 .dark .bg-grid-pattern {
   background-image: 
-    radial-gradient(circle, rgba(51, 65, 85, 0.2) 1.5px, transparent 1.5px);
+    radial-gradient(circle, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
 }
 
-/* Custom glassmorphism layout classes */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+/* Standardized SaaS Card style */
+.saas-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
 }
 
-.dark .glass-panel {
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+.dark .saas-card {
+  background-color: #0f172a;
+  border-color: #1e293b;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.dark .glass-card {
-  background: rgba(30, 41, 59, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-/* Micro animations */
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.5;
-    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.2));
-  }
-  50% {
-    opacity: 0.8;
-    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.5));
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 3s infinite ease-in-out;
-}
-
+/* Subtle fade in keyframes */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.animate-draw {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: draw 2s ease-in-out forwards;
+  animation: fadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }

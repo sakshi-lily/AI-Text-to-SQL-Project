@@ -34,7 +34,8 @@ class DBConnectionRequest(BaseModel):
     password: str
 
 class TranslationRequest(BaseModel):
-    prompt: str
+    question: Optional[str] = None
+    prompt: Optional[str] = None
     apiKey: Optional[str] = None
 
 class QueryExecutionRequest(BaseModel):
@@ -47,6 +48,25 @@ current_connection = {
     "port": "3306",
     "database": "university_registrar",
     "username": "sqlite_user",
+}
+
+# In-memory query logs and statistics state
+history_list = [
+    "Show all students in Computer Science with a CGPA above 8.0",
+    "Get the top 3 students by CGPA",
+    "Show the budget and head of each department",
+    "How many students are enrolled in Biology?",
+    "List students in Mechanical Engineering sorted by CGPA from lowest to highest"
+]
+
+stats_data = {
+    "totalQueries": 12,
+    "successfulQueries": 11,
+    "failedQueries": 1,
+    "avgQueryTimeMs": 14.5,
+    "mostAccessedTable": "students",
+    "aiAccuracy": 91.6,
+    "recordsFetched": 96
 }
 
 @app.post("/api/db/test")
@@ -114,10 +134,18 @@ def disconnect_database():
 @app.post("/api/generate-sql")
 def translate_prompt(req: TranslationRequest):
     """Translates a natural language question into SQL."""
-    if not req.prompt:
-        raise HTTPException(status_code=400, detail="Prompt is required.")
+    prompt_text = req.question or req.prompt
+    if not prompt_text:
+        raise HTTPException(status_code=400, detail="Question or prompt is required.")
     
-    sql, explanation, source = translate_nlp_to_sql(req.prompt, req.apiKey)
+    sql, explanation, source = translate_nlp_to_sql(prompt_text, req.apiKey)
+    
+    # Save newly generated query statement to dynamic history list
+    if prompt_text not in history_list:
+        history_list.insert(0, prompt_text)
+        if len(history_list) > 20:
+            history_list.pop()
+            
     return {
         "sql": sql,
         "explanation": explanation,
@@ -133,8 +161,27 @@ def execute_sql(req: QueryExecutionRequest):
     if not req.sql:
         raise HTTPException(status_code=400, detail="SQL query is required.")
         
+    import time
+    start_time = time.time()
     columns, rows, error = execute_query(req.sql)
+    duration_ms = (time.time() - start_time) * 1000.0
     
+    # Update dynamic statistics
+    stats_data["totalQueries"] += 1
+    if error:
+        stats_data["failedQueries"] += 1
+    else:
+        stats_data["successfulQueries"] += 1
+        stats_data["recordsFetched"] += len(rows)
+        # Average Latency recalculation
+        total_queries = stats_data["successfulQueries"] + stats_data["failedQueries"]
+        stats_data["avgQueryTimeMs"] = round((stats_data["avgQueryTimeMs"] * (total_queries - 1) + duration_ms) / total_queries, 2)
+        
+    # Recalculate translation accuracy
+    total_runs = stats_data["successfulQueries"] + stats_data["failedQueries"]
+    if total_runs > 0:
+        stats_data["aiAccuracy"] = round((stats_data["successfulQueries"] / total_runs) * 100, 1)
+        
     # Convert list of tuples to list of dicts for frontend convenience
     formatted_rows = []
     if not error:
@@ -147,23 +194,22 @@ def execute_sql(req: QueryExecutionRequest):
         "error": error
     }
 
-@app.get("/api/database-schema")
+@app.get("/api/schema")
 def get_db_schemas():
     """Gets schemas for all tables in the active database."""
     if not current_connection["connected"]:
         raise HTTPException(status_code=400, detail="No active database connection.")
     return get_schemas()
 
-@app.get("/api/query-history")
+@app.get("/api/history")
 def get_query_history():
-    """Gets mock recent queries logs."""
-    return [
-      "Show all students in Computer Science with a CGPA above 8.0",
-      "Get the top 3 students by CGPA",
-      "Show the budget and head of each department",
-      "How many students are enrolled in Biology?",
-      "List students in Mechanical Engineering sorted by CGPA from lowest to highest"
-    ]
+    """Gets recent queries history logs."""
+    return history_list
+
+@app.get("/api/analytics")
+def get_analytics():
+    """Gets current database query metrics."""
+    return stats_data
 
 if __name__ == "__main__":
     import uvicorn
