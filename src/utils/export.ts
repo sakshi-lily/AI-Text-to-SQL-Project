@@ -172,7 +172,7 @@ export function exportToPdf(
       columns.forEach((col, cIdx) => {
         const val = row[col] === null || row[col] === undefined ? 'NULL' : row[col].toString();
         // Truncate text if too long to fit in cell
-        const cellText = doc.clipStringToWidth(val, colWidth - 4, { text: val });
+        const cellText = clipText(doc, val, colWidth - 4);
         doc.text(cellText, 17 + (cIdx * colWidth), y + 5);
       });
       y += 7;
@@ -214,3 +214,16 @@ export function exportQueryHistory(history: string[]): void {
   link.click();
   document.body.removeChild(link);
 }
+
+/**
+ * Truncates text to fit a specified maximum width using jsPDF.
+ */
+function clipText(doc: jsPDF, text: string, maxWidth: number): string {
+  if (doc.getTextWidth(text) <= maxWidth) return text;
+  let truncated = text;
+  while (truncated.length > 0 && doc.getTextWidth(truncated + '...') > maxWidth) {
+    truncated = truncated.slice(0, -1);
+  }
+  return truncated + '...';
+}
+

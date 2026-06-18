@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Workspace from './components/Workspace';
 import SchemaExplorer from './components/SchemaExplorer';
+import AnalyticsDashboard from './components/AnalyticsDashboard';
 import AiSettings from './components/AiSettings';
 import { getConnectionStatus, disconnectDatabase, getQueryHistory } from './utils/api';
 import type { ConnectionStatus } from './utils/api';
@@ -14,7 +15,7 @@ type PageState = 'landing' | 'connect' | 'dashboard';
 export default function App() {
   // Navigation State
   const [page, setPage] = useState<PageState>('landing');
-  const [dashboardTab, setDashboardTab] = useState<'workspace' | 'explorer' | 'settings'>('workspace');
+  const [dashboardTab, setDashboardTab] = useState<'workspace' | 'explorer' | 'analytics' | 'settings'>('workspace');
 
   // Theme State
   const [darkMode, setDarkMode] = useState(() => {
@@ -163,7 +164,10 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       {page === 'landing' && (
-        <LandingPage onGetStarted={() => setPage('connect')} />
+        <LandingPage 
+          onGetStarted={() => setPage('connect')} 
+          onEnterDemoMode={() => handleConnectSuccess('summership_demo')}
+        />
       )}
 
       {page === 'connect' && (
@@ -202,6 +206,8 @@ export default function App() {
               />
             ) : dashboardTab === 'explorer' ? (
               <SchemaExplorer />
+            ) : dashboardTab === 'analytics' ? (
+              <AnalyticsDashboard />
             ) : (
               <AiSettings
                 openaiKey={openaiApiKey}

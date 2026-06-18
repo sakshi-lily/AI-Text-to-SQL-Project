@@ -79,18 +79,18 @@ export function generateDatasetInsights(rows: any[], columns: string[]): Dataset
 
     const trends = [
       `CGPA ranges from a minimum of ${minCgpa.toFixed(1)} to a maximum of ${maxCgpa.toFixed(1)}, showing a variance of ${(maxCgpa - minCgpa).toFixed(1)} grade points.`,
-      `Student enrollment density is concentrated in the Computer Science department (comprising the majority of active records in this cohort).`
+      `Average CGPA is lowest in the ${lowDept || 'Unassigned'} department at ${lowDeptAvg.toFixed(2)}.`
     ];
 
     const patterns = [
       `${maxCgpaStudent} holds the highest academic rank with a CGPA of ${maxCgpa.toFixed(2)}.`,
-      `Computer Science students have the highest average CGPA of ${topDeptAvg.toFixed(2)} compared to other departments.`
+      `Students in ${topDept || 'Computer Science'} have the highest average CGPA of ${topDeptAvg.toFixed(2)} compared to other departments.`
     ];
 
     const recommendations = [
       'Provide academic support, tutoring workshops, or counseling resources for students with a CGPA below 7.0.',
       'Establish a fast-track honors program or research scholarship fellowships to incentivize top performers in all engineering divisions.',
-      'Invest in more computer laboratory facilities or cloud server allocations to accommodate CS department enrollment growth.'
+      `Invest in more laboratory facilities or resources to accommodate ${topDept || 'Computer Science'} department enrollment growth.`
     ];
 
     return { summary, trends, patterns, recommendations };

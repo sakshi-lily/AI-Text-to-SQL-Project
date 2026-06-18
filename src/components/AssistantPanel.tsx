@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Sparkles, Send, Mic, MicOff, RefreshCw, X, Play, Copy, CornerDownLeft, Languages } from 'lucide-react';
+import { Sparkles, Send, Mic, MicOff, RefreshCw, X, CornerDownLeft } from 'lucide-react';
 import { generateSQL } from '../utils/apiService';
 
 interface Message {

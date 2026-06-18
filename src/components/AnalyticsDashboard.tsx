@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BarChart3, Activity, PieChart, Clock, Award, Shield, FileSpreadsheet, FileDown } from 'lucide-react';
+import { BarChart3, Activity, PieChart, Clock, Award, Shield, FileSpreadsheet } from 'lucide-react';
 import axios from 'axios';
 import { exportToCsv } from '../utils/export';
 

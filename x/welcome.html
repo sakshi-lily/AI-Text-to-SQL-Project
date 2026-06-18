@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Summership 2026</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Small script block to prevent blink/flash of content before verification redirects unauthorized users -->
+  <script>
+    if (!sessionStorage.getItem('summership_auth')) {
+      window.location.replace('index.html');
+    }
+  </script>
+</head>
+<body>
+
+  <div class="container" style="max-width: 480px;">
+    <div class="card welcome-card">
+      <div class="welcome-badge">Session Active</div>
+      <h1>Welcome to Summership 2026</h1>
+      <p>Hello <strong id="userDisplayName">Scholar</strong>, your workspace session has been successfully established.</p>
+      
+      <button id="logoutBtn" class="btn-outline">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px; display: inline-block; vertical-align: middle;">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        Log Out
+      </button>
+    </div>
+  </div>
+
+  <script src="welcome.js"></script>
+</body>
+</html>
