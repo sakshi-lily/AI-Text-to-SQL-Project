@@ -25,3 +25,6 @@ An AI-powered application that converts natural language questions into SQL quer
 - Node.js
 - Express.js
 
+### Database
+- MySQL
+
