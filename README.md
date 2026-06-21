@@ -28,3 +28,6 @@ An AI-powered application that converts natural language questions into SQL quer
 ### Database
 - MySQL
 
+### AI Integration
+- OpenAI API
+
