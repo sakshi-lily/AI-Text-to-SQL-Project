@@ -11,5 +11,5 @@ An AI-powered application that converts natural language questions into SQL quer
 - Database schema understanding
 - Error handling and validation
 - Responsive design
-
+- Easy to use
   
