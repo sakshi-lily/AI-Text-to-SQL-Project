@@ -20,3 +20,8 @@ An AI-powered application that converts natural language questions into SQL quer
 - TypeScript
 - Vite
 - Tailwind CSS
+
+### Backend
+- Node.js
+- Express.js
+
