@@ -13,3 +13,4 @@ An AI-powered application that converts natural language questions into SQL quer
 - Responsive design
 - Easy to use
   
+## Tech Stack
