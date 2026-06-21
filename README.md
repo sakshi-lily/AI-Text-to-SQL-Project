@@ -31,3 +31,5 @@ An AI-powered application that converts natural language questions into SQL quer
 ### AI Integration
 - OpenAI API
 
+## Project Structure
+
