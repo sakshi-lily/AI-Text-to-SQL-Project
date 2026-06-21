@@ -15,4 +15,4 @@ An AI-powered application that converts natural language questions into SQL quer
   
 ## Tech Stack
 
-### Frontend
+## Frontend
