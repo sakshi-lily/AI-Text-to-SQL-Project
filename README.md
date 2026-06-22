@@ -54,5 +54,7 @@ AI-Text-to-SQL
 └── .env
 ```
 
+## ⚙️ How It Works
+
 
 
