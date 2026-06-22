@@ -57,5 +57,7 @@ AI-Text-to-SQL
 ## ⚙️ How It Works
 1. User enters a question in natural language.
 2. The request is sent to the backend.
+3. AI processes the question and understands the database schema.
+
 
 
