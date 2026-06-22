@@ -34,17 +34,25 @@ An AI-powered application that converts natural language questions into SQL quer
 ## Project Structure
 
 ```text
-AI-Text-to-SQL-Project
+AI-Text-to-SQL
 │
-├── src
-├── public
-├── backend
-├── database
-├── package.json
-├── vite.config.ts
-└── README.md
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+├── backend/
+│   ├── controllers/
+│   ├── routes/
+│   ├── services/
+│   └── server.js
+│
+├── database/
+│   └── schema.sql
+│
+├── README.md
+└── .env
 ```
-
 
 
 
