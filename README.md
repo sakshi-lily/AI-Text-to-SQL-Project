@@ -30,3 +30,5 @@ The application uses an AI model to:
 This project makes database querying accessible to non-technical users.
 
 ---
+
+## ✨ Features
