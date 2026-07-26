@@ -11,3 +11,5 @@ Transform natural language questions into SQL queries using Artificial Intellige
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ---
+
+## 📖 Overview
