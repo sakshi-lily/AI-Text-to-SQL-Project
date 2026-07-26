@@ -9,3 +9,5 @@ Transform natural language questions into SQL queries using Artificial Intellige
 ![MySQL](https://img.shields.io/badge/MySQL-blue?logo=mysql)
 ![OpenAI](https://img.shields.io/badge/OpenAI-API-black)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
+
+---
