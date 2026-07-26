@@ -13,3 +13,7 @@ Transform natural language questions into SQL queries using Artificial Intellige
 ---
 
 ## 📖 Overview
+
+AI Text-to-SQL is a full-stack web application that enables users to interact with databases using plain English instead of writing SQL manually.
+
+Users simply type a question like:
