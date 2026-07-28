@@ -68,3 +68,29 @@ This project makes database querying accessible to non-technical users.
 - OpenAI API
 
 ---
+
+
+## 📂 Project Structure
+
+```
+AI-Text-to-SQL-Project
+│
+├── client/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+├── server/
+│   ├── routes/
+│   ├── controllers/
+│   ├── config/
+│   ├── database/
+│   └── package.json
+│
+├── README.md
+└── .gitignore
+```
+
+---
+
+
