@@ -54,3 +54,8 @@ This project makes database querying accessible to non-technical users.
 - Vite
 - Tailwind CSS
 
+### Backend
+
+- Node.js
+- Express.js
+
