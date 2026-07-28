@@ -59,3 +59,7 @@ This project makes database querying accessible to non-technical users.
 - Node.js
 - Express.js
 
+### Database
+
+- MySQL
+
