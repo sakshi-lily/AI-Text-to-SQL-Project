@@ -32,3 +32,4 @@ This project makes database querying accessible to non-technical users.
 ---
 
 ## ✨ Features
+
