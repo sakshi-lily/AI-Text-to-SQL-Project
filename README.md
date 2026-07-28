@@ -93,4 +93,15 @@ AI-Text-to-SQL-Project
 
 ---
 
+## 🚀 Getting Started
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/sakshi-lily/AI-Text-to-SQL-Project.git
+
+cd AI-Text-to-SQL-Project
+```
+
+---
 
