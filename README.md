@@ -33,3 +33,14 @@ This project makes database querying accessible to non-technical users.
 
 ## ✨ Features
 
+- 🔤 Natural Language to SQL conversion
+- 🤖 AI-powered SQL generation
+- ⚡ Instant query execution
+- 📊 Display query results in table format
+- 🗄️ MySQL database integration
+- 🔒 Secure backend API
+- 🎨 Modern responsive UI
+- ⚠️ SQL error handling
+- 📱 Mobile-friendly interface
+
+---
