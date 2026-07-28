@@ -105,3 +105,24 @@ cd AI-Text-to-SQL-Project
 
 ---
 
+## Install Dependencies
+
+### Frontend
+
+```bash
+cd client
+
+npm install
+```
+
+### Backend
+
+```bash
+cd ../server
+
+npm install
+```
+
+---
+
+
