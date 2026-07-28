@@ -63,3 +63,8 @@ This project makes database querying accessible to non-technical users.
 
 - MySQL
 
+### AI
+
+- OpenAI API
+
+---
