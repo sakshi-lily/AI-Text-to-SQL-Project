@@ -125,4 +125,19 @@ npm install
 
 ---
 
+## Environment Variables
 
+Create a `.env` file inside the **server** folder.
+
+```env
+PORT=5000
+
+OPENAI_API_KEY=your_openai_api_key
+
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_password
+DB_NAME=your_database
+```
+
+---
