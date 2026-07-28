@@ -44,3 +44,13 @@ This project makes database querying accessible to non-technical users.
 - 📱 Mobile-friendly interface
 
 ---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+
