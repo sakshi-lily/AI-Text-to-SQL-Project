@@ -141,3 +141,14 @@ DB_NAME=your_database
 ```
 
 ---
+
+## Start Backend
+
+```bash
+cd server
+
+npm run dev
+```
+
+---
+
