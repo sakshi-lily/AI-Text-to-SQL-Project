@@ -152,3 +152,14 @@ npm run dev
 
 ---
 
+
+## Start Frontend
+
+```bash
+cd client
+
+npm run dev
+```
+
+---
+
