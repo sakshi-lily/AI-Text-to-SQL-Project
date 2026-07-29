@@ -163,3 +163,15 @@ npm run dev
 
 ---
 
+## 💡 Example Queries
+
+- Show all employees.
+- List students with marks above 80.
+- Count total customers.
+- Show top 10 highest salaries.
+- Find products costing more than ₹1000.
+- Display all orders placed this month.
+
+---
+
+
