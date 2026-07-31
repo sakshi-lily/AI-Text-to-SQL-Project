@@ -190,4 +190,9 @@ npm run dev
 
 Add screenshots here.
 
+### Home Page
+
+```
+/screenshots/home.png
+```
 
