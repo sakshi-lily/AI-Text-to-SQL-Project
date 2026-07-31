@@ -174,4 +174,17 @@ npm run dev
 
 ---
 
+## ⚙️ How It Works
+
+1. User enters a natural language question.
+2. Frontend sends the request to the backend.
+3. Backend forwards the prompt to the OpenAI API.
+4. AI generates an SQL query.
+5. Backend executes the SQL query on MySQL.
+6. Results are returned to the frontend.
+7. User sees the generated SQL and the output.
+
+---
+
+
 
