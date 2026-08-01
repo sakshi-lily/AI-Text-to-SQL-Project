@@ -219,3 +219,17 @@ Add screenshots here.
 
 ---
 
+## 🎯 Future Improvements
+
+- User authentication
+- Query history
+- Chat interface
+- Multiple database support
+- PostgreSQL support
+- SQLite support
+- Export results to CSV
+- Dashboard analytics
+- Dark mode
+- Voice-to-SQL
+
+---
