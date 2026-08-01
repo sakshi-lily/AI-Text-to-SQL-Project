@@ -210,3 +210,12 @@ Add screenshots here.
 
 ---
 
+## 🔒 Security
+
+- Environment variables for API keys
+- Backend validation
+- SQL error handling
+- Secure API communication
+
+---
+
