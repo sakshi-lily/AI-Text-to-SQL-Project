@@ -202,3 +202,11 @@ Add screenshots here.
 /screenshots/query.png
 ```
 
+### Query Result
+
+```
+/screenshots/result.png
+```
+
+---
+
