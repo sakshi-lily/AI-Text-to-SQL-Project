@@ -196,3 +196,9 @@ Add screenshots here.
 /screenshots/home.png
 ```
 
+### Generated SQL
+
+```
+/screenshots/query.png
+```
+
